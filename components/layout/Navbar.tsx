@@ -33,9 +33,9 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden md:flex items-center gap-5">
-            <Link href="/login" className="text-white/65 text-xs font-medium hover:text-white transition-colors">
-              Se connecter
-            </Link>
+          <Link href="/partners/login" className="text-white/65 text-xs font-medium hover:text-white transition-colors">
+  Se connecter
+</Link>
             <Link href="/contact" className="flex items-center gap-1.5 border border-white/25 text-white/80 text-xs font-medium px-4 py-2 rounded-full hover:border-white/50 transition-colors">
               <Phone size={11} />
               Être rappelé
