@@ -10,6 +10,8 @@ interface ShareRecord {
   sharedWith: string[] // ids
   publicUrl?: string
   createdAt: string
+  fileSize?: number
+fileLastModified?: string | null
 }
 
 async function getSession() {
@@ -31,11 +33,13 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   const session = await getSession()
   if (!session) return NextResponse.json({ error: 'Non autorisé' }, { status: 401 })
-  const { fileKey, fileName, sharedWith, publicUrl } = await req.json()
+  const { fileKey, fileName, sharedWith, publicUrl, fileSize, fileLastModified } = await req.json()
   const shares = await getData<ShareRecord[]>('admin/shares.json', [])
   const record: ShareRecord = {
     id: Date.now().toString(),
     fileKey, fileName,
+    fileSize: fileSize || 0,
+    fileLastModified: fileLastModified || null,
     sharedBy: session.partnerId,
     sharedWith: sharedWith || [],
     publicUrl,

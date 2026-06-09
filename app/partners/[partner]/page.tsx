@@ -269,7 +269,7 @@ const [isCalDragging, setIsCalDragging] = useState(false)
     for (const file of allFiles) {
       const res = await fetch('/api/partners/download-url', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key: file.key, forceDownload: true }) })
       const { url } = await res.json()
-      zip.file(file.zipPath, await fetch(url).then(r => r.blob()))
+      zip.file(file.zipPath, await fetch(url).then(r => r.blob()) as Blob)
     }
     const content = await zip.generateAsync({ type: 'blob' })
     const a = document.createElement('a'); a.href = URL.createObjectURL(content); a.download = 'upskillz-fichiers.zip'; a.click()

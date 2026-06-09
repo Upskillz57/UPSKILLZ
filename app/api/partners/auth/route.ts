@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getData } from '@/lib/r2'
 import { R2_KEYS } from '@/lib/keys'
-import { Partner } from '@/lib/types'
+import { Partner } from '@/lib/type'
 import { cookies } from 'next/headers'
 import crypto from 'crypto'
 
