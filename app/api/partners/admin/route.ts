@@ -49,6 +49,7 @@ export async function POST(req: NextRequest) {
       passwordHash: hashPassword(password),
       role,
       prefix: `partners/${id}/`,
+      createdAt: new Date().toISOString(),
     }
     await putData(R2_KEYS.partners, [...partners, newPartner])
     return NextResponse.json({ success: true, id })
