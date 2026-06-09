@@ -53,7 +53,9 @@ export default function Navbar() {
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="text-white/65 text-sm" onClick={() => setOpen(false)}>{l.label}</Link>
           ))}
-          <Link href="/login" className="text-white/65 text-sm">Se connecter</Link>
+          <Link href="/partners/login" className="text-white/65 text-xs font-medium hover:text-white transition-colors">
+  Se connecter
+</Link>
           <Link href="/contact" className="text-gold text-sm font-semibold">Être rappelé</Link>
         </div>
       )}
